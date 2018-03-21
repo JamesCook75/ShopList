@@ -1,0 +1,15 @@
+﻿@model List<ShopList.Models.Checklist>
+
+<h2>Shopping Lists</h2>
+
+<ul>
+    @{
+        foreach (var checklist in Model)
+        {
+            <li><a asp-controller="Checklist" asp-action="ViewChecklist" asp-route-id="@checklist.ID">@checklist.Name</a></li>
+
+        }
+    }
+</ul>
+
+<p><a asp-controller="Checklist" asp-action="Add">Add Shopping List</a></p>

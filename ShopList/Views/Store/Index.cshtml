@@ -1,0 +1,15 @@
+﻿@model List<ShopList.Models.Store>
+
+<h2>Choose a Store</h2>
+
+<ul>
+    @{
+        foreach (var store in Model)
+        {
+            <li><a asp-controller="Item" asp-action="Store" asp-route-id="@store.ID">@store.Name</a></li>
+         
+
+        }
+    }
+</ul>
+<p><a asp-controller="Store" asp-action="Add">Add Store</a></p>

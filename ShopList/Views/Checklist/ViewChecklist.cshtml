@@ -1,0 +1,34 @@
+﻿@model ShopList.ViewModels.ViewChecklistViewModel
+@{
+    ViewBag.Title = Model.Checklist.Name;
+}
+
+<h2>@ViewBag.Title</h2>
+
+<table class="table">
+
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Store</th>
+    </tr>
+
+    @foreach (var checklistItem in Model.Items)
+    {
+        <tr>
+            <td>@checklistItem.Item.Name</td>
+            <td>@checklistItem.Item.Description</td>
+            <td>@checklistItem.Item.Price</td>
+            <td>@checklistItem.Item.StoreID</td>
+            <td><a asp-controller="Checklist" asp-action="RemoveItem" asp-route-checklistId="@Model.Checklist.ID"  asp-route-itemId="@checklistItem.Item.ID">Remove</a></td>
+        </tr>
+    }
+</table>
+
+@if (Model.Items.Count == 0)
+{
+    <p>No items yet!</p>
+}
+
+<p><a asp-controller="Checklist" asp-action="AddItem" asp-route-ID="@Model.Checklist.ID">Add Item |</a><a asp-controller="Checklist" asp-action="RemoveItem"> Remove Item</a></p>
