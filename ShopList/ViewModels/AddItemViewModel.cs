@@ -26,11 +26,11 @@ namespace ShopList.ViewModels
 
         public AddItemViewModel() { }
 
-        public AddItemViewModel(IEnumerable<Store> stores)
+        public AddItemViewModel(IEnumerable<ItemStore> stores)
         {
             Stores = new List<SelectListItem>();
 
-            foreach (Store store in stores)
+            foreach (ItemStore store in stores)
             {
                 Stores.Add(new SelectListItem
                 {

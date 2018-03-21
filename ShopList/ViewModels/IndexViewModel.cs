@@ -16,11 +16,11 @@ namespace ShopList.ViewModels
 
         public IndexViewModel() { }
 
-        public IndexViewModel(IEnumerable<Store> stores)
+        public IndexViewModel(IEnumerable<ItemStore> stores)
         {
             Stores = new List<SelectListItem>();
 
-            foreach (Store store in stores)
+            foreach (ItemStore store in stores)
             {
                 Stores.Add(new SelectListItem
                 {

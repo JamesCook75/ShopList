@@ -10,7 +10,7 @@ namespace ShopList.Data
     public class ShopListDbContext : DbContext
     {
         public DbSet<Item> Items { get; set; }
-        public DbSet<Store> Stores { get; set; }
+        public DbSet<ItemStore> Stores { get; set; }
         public DbSet<Checklist> Checklists { get; set; }
         public DbSet<ChecklistItem> ChecklistItems { get; set; }
 

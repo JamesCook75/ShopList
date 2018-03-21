@@ -22,10 +22,10 @@ namespace ShopList.Controllers
         {
             if (context.Stores.Count() == 0)
             {
-                Store publix = new Store();
-                Store walmart = new Store();
-                Store homedepot = new Store();
-                Store target = new Store();
+                ItemStore publix = new ItemStore();
+                ItemStore walmart = new ItemStore();
+                ItemStore homedepot = new ItemStore();
+                ItemStore target = new ItemStore();
 
                 publix.Name = "Publix";
                 context.Stores.Add(publix);
@@ -38,7 +38,7 @@ namespace ShopList.Controllers
                 context.SaveChanges();
             }
 
-            List<Store> stores = context.Stores.ToList();
+            List<ItemStore> stores = context.Stores.ToList();
 
             return View(stores);
         }
@@ -54,7 +54,7 @@ namespace ShopList.Controllers
         {
             if (ModelState.IsValid)
             {
-                Store newStore = new Store
+                ItemStore newStore = new ItemStore
                 {
                     Name = addStoreViewModel.Name,
 

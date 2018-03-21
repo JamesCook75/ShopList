@@ -21,7 +21,7 @@ namespace ShopList.Controllers
 
         public IActionResult Index()
         {
-            IList<Item> items = context.Items.ToList();
+            IList<Item> items = context.Items.Include(i => i.Store).ToList();
 
             return View(items);
         }
@@ -37,14 +37,14 @@ namespace ShopList.Controllers
         {
             if (ModelState.IsValid)
             {
-                Store newStore = context.Stores.Single(s => s.ID == addItemViewModel.StoreID);
+                ItemStore newStore = context.Stores.Single(s => s.ID == addItemViewModel.StoreID);
 
                 Item newItem = new Item
                 {
                     Name = addItemViewModel.Name,
                     Description = addItemViewModel.Description,
                     Price = addItemViewModel.Price,
-                    StoreObject = newStore
+                    Store = newStore
                 };
 
                 context.Items.Add(newItem);
@@ -81,7 +81,7 @@ namespace ShopList.Controllers
         {
             if (id == 0) { return Redirect("/Store"); }
 
-            Store theStore = context.Stores.Include(s => s.Items).Single(s => s.ID == id);
+            ItemStore theStore = context.Stores.Include(s => s.Items).Single(s => s.ID == id);
 
             ViewBag.title = "Items at " + theStore.Name;
             return View("Index", theStore.Items);

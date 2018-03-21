@@ -52,7 +52,7 @@ namespace ShopList.Controllers
 
         public IActionResult ViewCheckList(int id)
         {
-            List<ChecklistItem> items = context.ChecklistItems.Include(i => i.Item).Where(c => c.ChecklistID == id).ToList();
+            List<ChecklistItem> items = context.ChecklistItems.Include(i => i.Item.Store).Where(c => c.ChecklistID == id).ToList();
 
             Checklist checklist = context.Checklists.Single(c => c.ID == id);
 
@@ -68,7 +68,7 @@ namespace ShopList.Controllers
         public IActionResult AddItem(int id)
         {
             Checklist checklist = context.Checklists.Single(c => c.ID == id);
-            IList<Item> items = context.Items.Include(i => i.StoreObject).ToList(); 
+            IList<Item> items = context.Items.Include(i => i.Store).ToList(); 
             AddChecklistItemViewModel addChecklistItemViewModel = new AddChecklistItemViewModel(checklist, items);
             return View(addChecklistItemViewModel);
         }
