@@ -9,7 +9,7 @@ namespace ShopList.Models
     {
         public string Name { get; set; }
         public string Description { get; set; }
-        public int Price { get; set; }
+        public decimal Price { get; set; }
         public int ID { get; set; }
         public ItemStore Store { get; set; }
         public int StoreID { get; set; }

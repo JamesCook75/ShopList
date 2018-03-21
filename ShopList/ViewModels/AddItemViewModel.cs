@@ -16,7 +16,8 @@ namespace ShopList.ViewModels
 
         public string Description { get; set; }
 
-        public int Price { get; set; }
+        [DataType(DataType.Currency)]
+        public decimal Price { get; set; }
 
         [Required]
         [Display(Name = "Store")]

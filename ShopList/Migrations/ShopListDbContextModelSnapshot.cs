@@ -54,7 +54,7 @@ namespace ShopList.Migrations
 
                     b.Property<string>("Name");
 
-                    b.Property<int>("Price");
+                    b.Property<decimal>("Price");
 
                     b.Property<int>("StoreID");
 
@@ -65,7 +65,7 @@ namespace ShopList.Migrations
                     b.ToTable("Items");
                 });
 
-            modelBuilder.Entity("ShopList.Models.Store", b =>
+            modelBuilder.Entity("ShopList.Models.ItemStore", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd();
@@ -92,7 +92,7 @@ namespace ShopList.Migrations
 
             modelBuilder.Entity("ShopList.Models.Item", b =>
                 {
-                    b.HasOne("ShopList.Models.Store", "StoreObject")
+                    b.HasOne("ShopList.Models.ItemStore", "Store")
                         .WithMany("Items")
                         .HasForeignKey("StoreID")
                         .OnDelete(DeleteBehavior.Cascade);

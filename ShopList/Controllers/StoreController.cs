@@ -20,23 +20,7 @@ namespace ShopList.Controllers
 
         public IActionResult Index()
         {
-            if (context.Stores.Count() == 0)
-            {
-                ItemStore publix = new ItemStore();
-                ItemStore walmart = new ItemStore();
-                ItemStore homedepot = new ItemStore();
-                ItemStore target = new ItemStore();
 
-                publix.Name = "Publix";
-                context.Stores.Add(publix);
-                walmart.Name = "Wal-Mart";
-                context.Stores.Add(walmart);
-                homedepot.Name = "Home Depot";
-                context.Stores.Add(homedepot);
-                target.Name = "Target";
-                context.Stores.Add(target);
-                context.SaveChanges();
-            }
 
             List<ItemStore> stores = context.Stores.ToList();
 

@@ -22,7 +22,7 @@ namespace ShopList.Controllers
         public IActionResult Index()
         {
             IList<Item> items = context.Items.Include(i => i.Store).ToList();
-
+            ViewBag.title = "All Items";
             return View(items);
         }
 

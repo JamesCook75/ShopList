@@ -3,7 +3,7 @@
     ViewBag.Title = Model.Checklist.Name;
 }
 
-<h2>@ViewBag.Title</h2>
+<h2>My Lists: @ViewBag.Title</h2>
 
 <table class="table">
 
@@ -16,13 +16,13 @@
 
     @foreach (var checklistItem in Model.Items)
     {
-        <tr>
-            <td>@checklistItem.Item.Name</td>
-            <td>@checklistItem.Item.Description</td>
-            <td>@checklistItem.Item.Price</td>
-            <td>@checklistItem.Item.Store.Name</td>
-            <td><a asp-controller="Checklist" asp-action="RemoveItem" asp-route-checklistId="@Model.Checklist.ID"  asp-route-itemId="@checklistItem.Item.ID">Remove</a></td>
-        </tr>
+    <tr>
+        <td>@checklistItem.Item.Name</td>
+        <td>@checklistItem.Item.Description</td>
+        <td>$ @checklistItem.Item.Price</td>
+        <td><a asp-controller="Item" asp-action="Store" asp-route-id="@checklistItem.Item.Store.ID">@checklistItem.Item.Store.Name</a></td>
+        <td><a asp-controller="Checklist" asp-action="RemoveItem" asp-route-checklistId="@Model.Checklist.ID" asp-route-itemId="@checklistItem.Item.ID">Remove</a></td>
+    </tr>
     }
 </table>
 
