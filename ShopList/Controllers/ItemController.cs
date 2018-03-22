@@ -50,7 +50,7 @@ namespace ShopList.Controllers
                 context.Items.Add(newItem);
                 context.SaveChanges();
 
-                return Redirect("/Item");
+                return Redirect("/Item/Index");
             }
 
             return View(addItemViewModel);

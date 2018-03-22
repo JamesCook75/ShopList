@@ -61,7 +61,7 @@ namespace ShopList
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Checklist}/{action=Index}/{id?}");
+                    template: "{controller=User}/{action=Login}/{id?}");
             });
         }
     }

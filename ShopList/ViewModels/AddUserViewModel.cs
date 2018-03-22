@@ -25,15 +25,15 @@ namespace ShopList.ViewModels
         //[Display(Name = "Verify Password")]
         public string Verify { get; set; }
 
-        public AddUserViewModel(string username, string email, string password)
-        {
-            User newUser = new User
-            {
-                Username = username,
-                Email = email,
-                Password = password
-            };
+        //public AddUserViewModel(string username, string email, string password)
+        //{
+        //    User newUser = new User
+        //    {
+        //        Username = username,
+        //        Email = email,
+        //        Password = password
+        //    };
 
-        }
+        //}
     }
 }
