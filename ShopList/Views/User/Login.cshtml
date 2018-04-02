@@ -14,9 +14,11 @@
         <input class="form-control" asp-for="Password" />
         <span asp-validation-for="Password"></span>
     </div>
-
-    <input type="submit" value="Login" />
+    <div class="form-group">
+        <input type="submit" value="Login" />
+    </div>
+    
 
 </form>
 
-<p><a asp-controller="User" asp-action="Add">Register</a></p>
+<div><a asp-controller="User" asp-action="Add">Register</a></div>
